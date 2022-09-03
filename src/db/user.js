@@ -1,5 +1,6 @@
 const data = [
     {
+        id: 1,
         name: 'Jane Doe',
         email: 'jane.doe@gmail.com',
         password: '123456',
@@ -20,7 +21,11 @@ export const findOne = (id) =>{
 
 //crear
 export const store = (user) => {
-    user.id = data.length + 1;
+    let end = data.length - 1
+    let newData = data[end]
+    
+    
+    user.id = newData.id + 1;
     data.push(
         user
     );
@@ -29,6 +34,8 @@ export const store = (user) => {
 //update
 export const update = (id, user) => {
     const index = data.findIndex((u)=> u.id === Number(id));
+    let newData = data[index];
+    user.id = newData.id;
     data[index] = {
         //antiguo
         ...data[index],

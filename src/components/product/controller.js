@@ -1,17 +1,17 @@
-let DB;_8cb‍.x([["findAll",()=>findAll],["findOne",()=>findOne],["create",()=>create],["update",()=>update],["remove",()=>remove]]);_8cb‍.w("../../db",[["*",null,function(v){DB=v}]]);//vamos a crear un  crud
+//vamos a crear un  crud
 //importamos db
-
+import * as DB from "../../db/product"
 
 //listar
-       const findAll = (req, res) => {
+export const findAll = (req, res) => {
     return res.json({
         ok: true,
-        data: "Hello"
+        data: DB.findAll(),
     })
 };
 
 //buscar
-       const findOne = (req, res) => {
+export const findOne = (req, res) => {
     //indicamos que solo extraemos el parametro id de lo que se capta en la url
     const { id } = req.params;
 
@@ -22,9 +22,9 @@ let DB;_8cb‍.x([["findAll",()=>findAll],["findOne",()=>findOne],["create",()=>
 }
 
 //create
-       const create  = (req, res) => {
+export const create  = (req, res) => {
     const { body } = req;
-
+    
     DB.store(body)
 
     return res.status(201).json({
@@ -34,7 +34,7 @@ let DB;_8cb‍.x([["findAll",()=>findAll],["findOne",()=>findOne],["create",()=>
 }
 
 //update
-       const update = (req, res) => {
+export const update = (req, res) => {
     const { id }  = req.params
     const { body } = req;
     
@@ -47,7 +47,7 @@ let DB;_8cb‍.x([["findAll",()=>findAll],["findOne",()=>findOne],["create",()=>
 }
 
 //remove
-       const remove  = (req, res) => {
+export const remove  = (req, res) => {
     const { id }  = req.params
 
     DB.remove(id)

@@ -1,6 +1,6 @@
 //vamos a crear un  crud
 //importamos db
-import * as DB from "../../db"
+import * as DB from "../../db/user"
 
 //listar
 export const findAll = (req, res) => {
@@ -24,7 +24,7 @@ export const findOne = (req, res) => {
 //create
 export const create  = (req, res) => {
     const { body } = req;
-
+    
     DB.store(body)
 
     return res.status(201).json({

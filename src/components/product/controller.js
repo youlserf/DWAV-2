@@ -29,7 +29,7 @@ export const create  = (req, res) => {
 
     return res.status(201).json({
         ok: true,
-        data: "User created"
+        data: "Product created"
     })
 }
 
@@ -42,7 +42,7 @@ export const update = (req, res) => {
 
     return res.json({
         ok: true,
-        data: "User updated"
+        data: "Product updated"
     })
 }
 
@@ -54,7 +54,7 @@ export const remove  = (req, res) => {
 
     return res.json({
         ok: true,
-        data: "User deleted"
+        data: "Product deleted"
     })
 }
 
